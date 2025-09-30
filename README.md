@@ -1,246 +1,288 @@
-# 🏗 Scaffold-ETH 2
+![BuidlGuidl CTF](https://raw.githubusercontent.com/BuidlGuidl/ctf.buidlguidl.com/refs/heads/main/packages/nextjs/public/readme-image.jpg)
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+# 🚀 BuidlGuidl CTF Quick Start
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+## 📖 About This Repository
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+This repository contains **solution scripts** for the [BuidlGuidl CTF](https://ctf.buidlguidl.com/).
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+The BuidlGuidl CTF is a Capture The Flag (CTF) challenge platform for learning Ethereum smart contract security and Solidity programming. This repository provides automated solution scripts for all 12 challenges.
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+**Official CTF Site**: https://ctf.buidlguidl.com/
 
-## Requirements
+### 🎓 Educational Purpose
 
-Before you begin, you need to install the following tools:
+This repository is intended for **educational purposes only**. The solutions are provided to help developers:
+- Learn smart contract security concepts
+- Understand common vulnerabilities in Solidity
+- Practice blockchain development techniques
+- Study automated testing and scripting with TypeScript and Viem
 
-- [Node (>= v18.18)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
+### ⚖️ Ethical Use
 
-![BuidlGuidl CTF](https://raw.githubusercontent.com/buidlguidl/ctf.buidlguidl.com/refs/heads/main/packages/nextjs/public/readme-image.jpg)
+**Important**: These solutions should only be used:
+- ✅ For learning and educational purposes
+- ✅ To understand security concepts after attempting challenges yourself
+- ✅ To improve your smart contract development skills
 
-**Welcome to the BuidlGuidl CTF**
+**Do NOT use these solutions to**:
+- ❌ Cheat or skip the learning process
+- ❌ Exploit vulnerabilities in production contracts
+- ❌ Harm others or their systems
 
-⚡️ Live at https://ctf.buidlguidl.com
+### 📜 Disclaimer
 
-If you have your own stack already, go straight to the CTF site and start playing.
+The code in this repository is provided "as is" for educational purposes. Users are responsible for understanding and applying security concepts ethically. Always attempt challenges independently before reviewing solutions.
 
-We have created this stack, which contains all the tools you need to play the CTF.
+## 📋 Prerequisites
 
-Once you have solved a challenge locally, you can deploy your solution to Optimism, and then interact with the live contracts from the frontend by [switching the network to Optimism.](#nextjs) If you are using a script, make sure you are pointing it to the Optimism RPC.
+Before getting started, make sure you have the following:
 
-> Live challenges addresses and ABIs are already stored in your `externalContracts.ts` file.
+- **Node.js** v18 or higher
+- **Yarn** package manager
+- **Optimism ETH** for gas fees (not required for local testing)
+- Basic understanding of:
+  - Ethereum and smart contracts
+  - Solidity programming language
+  - TypeScript
+  - Command line operations
 
-Keep reading to learn how to set it up.
+## 🛠️ Tech Stack
 
-## Setting up the environment
+This project is built with:
 
-### Requirements
+- **Framework**: [Scaffold-ETH 2](https://scaffoldeth.io/)
+- **Languages**: TypeScript, Solidity
+- **Libraries**:
+  - [Viem](https://viem.sh/) - TypeScript interface for Ethereum
+  - [Hardhat](https://hardhat.org/) - Development environment
+- **Network**: Optimism (Ethereum Layer 2)
+- **Development Tools**: ESLint, Prettier
 
-You'll need to have the following tools installed in your machine:
+## 📋 Command List (Run from project root)
 
-- [Node (>= v18.18)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
-- [Foundryup](https://book.getfoundry.sh/getting-started/installation) (if foundry is selected)
+### Execute All Challenges at Once
+```bash
+# Optimism network (production environment)
+yarn ctf:all
 
-> **Note for Windows users**. Foundryup is not currently supported by Powershell or Cmd, and has issues with Git Bash. You will need to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) as your terminal.
+# Local chain execution
+yarn ctf:all --local
+```
 
-### Setting up your local testing environment
+### Execute Individual Challenges
+```bash
+# Optimism network (production environment)
+yarn ctf:1   # Challenge 1: Name Registration
+yarn ctf:2   # Challenge 2: msg.sender != tx.origin
+yarn ctf:3   # Challenge 3: Mint from Constructor
+yarn ctf:4   # Challenge 4: Encoding
+yarn ctf:5   # Challenge 5: Decryption
+yarn ctf:6   # Challenge 6: Secret Number
+yarn ctf:7   # Challenge 7: Delegate Call
+yarn ctf:8   # Challenge 8: Overflow
+yarn ctf:9   # Challenge 9: Etherswap
+yarn ctf:10  # Challenge 10: Multi-Token Transfer
+yarn ctf:11  # Challenge 11: CREATE2 Prediction
+yarn ctf:12  # Challenge 12: RLP Verification
 
-First, install the Scaffold-ETH 2 CTF extension with create-eth:
+# Local chain execution
+yarn ctf:1 --local
+yarn ctf:2 --local
+# ... etc
+```
+
+## ⚙️ Initial Setup
+
+### 1. Install Dependencies
+```bash
+yarn install
+```
+
+### 2. Environment Variable Configuration (Important)
+
+#### For Optimism Network Execution (Production Environment)
+Create a `packages/scripts/.env` file and set your private key:
 
 ```bash
-npx create-eth@latest -e buidlguidl/ctf.buidlguidl.com:extension
+# Copy .env.example to create .env (recommended)
+cd packages/scripts
+cp .env.example .env
+# Edit the created .env file to set your private key
 ```
 
-This will create a new folder with all the tools you need to play the CTF locally. Afterward, you'll be able to deploy the solutions to Optimism and capture the flags in the [live game](https://ctf.buidlguidl.com).
-
-Go into the folder and run the following commands in separate terminals:
-
-1. Run a local blockchain:
-
+Or create directly:
+```bash
+# Create .env file
+cd packages/scripts
+echo "__RUNTIME_DEPLOYER_PRIVATE_KEY=0xYourPrivateKey" > .env
 ```
+
+Or manually create `packages/scripts/.env`:
+```bash
+# Required for solving actual CTF on Optimism
+__RUNTIME_DEPLOYER_PRIVATE_KEY=0xEnterYourPrivateKeyHere
+```
+
+🔒 **Security Warning**:
+- Never share your private key with others
+- `.env` file is not committed to Git (included in `.gitignore`)
+- Always separate test private keys from production private keys
+
+⚠️ **Important**: For Optimism network execution, the private key **must** be set in `.env`. The script will exit with an error if not configured.
+
+#### For Local Environment Testing
+
+✅ **--local Flag Support**: All challenge scripts support local execution with the `--local` flag.
+
+**Quick Start (Local)**:
+```bash
+# 1. Start local chain (in terminal 1)
 yarn chain
-```
 
-2. Deploy the challenges contracts locally:
-
-  <details>
-  <summary>
-    hardhat
-  </summary>
-
-```
+# 2. Deploy contracts (in terminal 2)
 yarn deploy
+
+# 3. Run challenges with --local flag (in terminal 2)
+yarn ctf:1 --local  # Individual execution
+yarn ctf:all --local  # All challenges at once
 ```
 
-  </details>
+**Network & Private Key Behavior**:
 
-  <details>
-  <summary>
-    foundry
-  </summary>
+| Flag | Network | Private Key | Configuration Required? |
+|------|---------|-------------|------------------------|
+| None | Optimism | Environment variable | ✅ Yes - `.env` file required |
+| `--local` | Hardhat (localhost:8545) | Hardhat account #0 (automatic) | ❌ No - uses default key |
 
-```
-yarn deploy --file DeployChallenges.s.sol
-```
+**Note**: Challenge 10 may not be deployed in local environment.
 
-  </details>
-
-> Note: This command will update the `deployedContracts.ts` file (in the `scripts` and `nextjs` packages), which contains the deployed contracts addresses and ABIs.
-
-3. Start the frontend (NextJS app):
-
-```
-yarn start
-```
-
-Now your app on `http://localhost:3000` is running entirely locally. You can break things without any consequences :)
-
-## Repo structure / Key files
-
-This is a [yarn](https://yarnpkg.com/features/workspaces) monorepo with different packages:
-
-```
-ctf/
-└── packages/
-    ├── {solidity-framework}/
-    ├── nextjs/
-    └── scripts/
-```
-
-### hardhat
-
-Comes preconfigured with [hardhat](https://hardhat.org/) and contains the smart contracts and deployment scripts for the CTF challenges.
-
-It uses hardhat-deploy to deploy the contracts.
-
-#### Key files in hardhat
-
-- `contracts/`: The source directory where all your smart contracts should be. It already contains all the challenge contracts and the NFT Flag minter contract.
-- `deploy/`: This directory contains all your deployments scripts. When you run `yarn deploy` all the scripts present in this directory will be executed in numbered order.
-
-<details>
-<summary>Example (How to deploy a contract)</summary>
-
-1. Create the smart contract:
-
-   - Add your new contract file (e.g., `Challenge2Solution.sol`) in the `packages/hardhat/contracts/` directory.
-
-2. Create a deployment script:
-
-   - Add a new file (or use the already created `02_deploy_challenge_2_solution.ts` file as a starting point) in the `deploy/` directory.
-   - Write your deployment script as needed (you can use `00_deploy_your_contract.ts` to guide you)
-
-3. Deploy your contract locally:
-
-   - Run `yarn deploy --tags solution2` to deploy your solution contract locally. The `tags` make sure that your are only deploying the solution contract and not all the other challenges (that were deployed with `yarn deploy` or `yarn deploy --tags CTF`).
-
-4. When tested and ready, deploy your contract to Optimism (ask us for some funds if you need!):
-   - > Note: You need a private key to deploy the contracts. You can generate one with `yarn generate` or add your own private key in the `.env` files in `/packages/hardhat` and `packages/scripts` folders.
-   - Run `yarn deploy --tags solution2 --network optimism` to deploy your solution contract to Optimism.
-
-For more details on deployment, including configuring deployer accounts or the network you want to deploy to, see the [Scaffold-ETH 2 deployment docs](https://docs.scaffoldeth.io/deploying/deploy-smart-contracts).
-
-</details>
-
-### foundry
-
-Comes preconfigured with [Foundry](https://book.getfoundry.sh/) development environment and contains the smart contracts and deployment scripts for the CTF challenges.
-
-#### Key files in foundry
-
-- `contracts/`: The source directory where all your smart contracts should be. It already contains all the challenge contracts and the NFT Flag minter contract.
-- `script/`: This directory contains all your deployments scripts. When you run `yarn deploy` it defaults to `Deploy.s.sol`, but you can also deploy any other script from this directory (e.g., `yarn deploy --file DeploySolution2.s.sol`).
-
-<details>
-<summary>Example (How to deploy your solution contracts)</summary>
-
-1. Create the smart contract:
-
-   - Add your new contract file (e.g., `Challenge2Solution.sol`) in the `packages/foundry/contracts/` directory.
-
-2. Create a deployment script:
-
-   - Add a new file (or use the already created `DeploySolution2.s.sol` file as a starting point) in the `script/` directory.
-   - Write your deployment script as needed (you can use `DeployChallenges.s.sol` to guide you)
-
-3. Deploy your contract locally:
-
-   - Run `yarn deploy --file DeploySolution2.s.sol` to deploy your solution contract locally. `yarn deploy` by default runs `Deploy.s.sol` which is useful when deploying multiple solutions at once. Use the `--file` flag when you want to deploy a specific solution
-
-4. When tested and ready, deploy your contract to Optimism (ask us for some funds if you need!):
-
-   - > Note: You need a foundry keystore account to deploy. Either:
-
-     - Generate with random private key: Run `yarn generate` and update `ETH_KEYSTORE_ACCOUNT=scaffold-eth-custom` in `packages/foundry/.env`.
-     - Create one with existing private key: Run `yarn account:import`, enter your private key, and update `ETH_KEYSTORE_ACCOUNT=scaffold-eth-custom` in `packages/foundry/.env`.
-
-   - > TIP: You can check configured account balance with `yarn account`.
-
-   - Run `yarn deploy --file DeploySolution2.s.sol --network optimism` to deploy your solution contract to Optimism.
-
-   For more details on deployment, including configuring deployer accounts or the network you want to deploy to, see the [Scaffold-ETH 2 foundry deployment](https://github.com/scaffold-eth/scaffold-eth-2/tree/foundry?tab=readme-ov-file#deploying-to-live-networks).
-
-</details>
-
-### NextJS
-
-This is the frontend to track your local progress in the CTF game and the UI to interact with the deployed contracts. Main pages:
-
-- _"Homepage"_ shows your progress, with the flags you have minted and the pending flags.
-- _"Debug Contracts"_ lists all the deployed contracts and allows you to interact with them.
-
-Key folders and files:
-
-- `app/`: Contains the Next.js pages and components (uses [app router](https://nextjs.org/docs/app)).
-- `contracts/`: Contains deployed contracts ABIs and addresses.
-- `package.json`: Dependencies and scripts for the Next.js app.
-- `scaffold.config.ts`: Configuration file (you can switch between local and Optimism networks by changing `targetNetwork`). For extra info check our [docs](https://docs.scaffoldeth.io/deploying/deploy-nextjs-app#scaffold-app-configuration).
-
-### scripts
-
-Contains scripts to interact with the deployed contracts. This package comes pre-installed with [viem](https://viem.sh/)
-which helps you interface with the Blockchain using Typescript scripts.
-
-#### Key files and directories:
-
-- `src/`: Contains the script files.
-  - `example.ts`: A basic example script demonstrating how to interact with contracts.
-- `contracts/`: Contains deployed contracts ABIs and addresses. (generated by `yarn deploy`)
-
-To run the script in the local chain (test account PK with loaded funds): 
-
-```shell
+### 3. Verify Configuration
+Check if environment variable is correctly set:
+```bash
+# In packages/scripts directory
 cd packages/scripts
-yarn tsx src/example.ts
+cat .env  # Verify file exists and private key is set
 ```
 
-To run the script with your own PK (generated via `yarn generate` or `yarn account:import`):
+### 4. Prepare Gas Fee
+ETH is required for gas fees on Optimism network (not needed for local testing).
 
-```shell
-cd packages/scripts
-yarn tsx-with-pk src/example.ts
+📍 **Check Optimism Network Wallet Address**:
+```bash
+# Run Challenge 1 with --help option to check configuration
+yarn ctf:1 --help
 ```
 
-- Check the `TARGET_CHAIN` variable in the example script to see how to deploy to the live network. (default is localhost)
-## Documentation
+## 🎯 Execution Examples
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+### Execute on Optimism Network (Recommended)
+```bash
+# 1. Set private key in .env file
+# 2. Run from root directory
+yarn ctf:all
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+# Or individually
+yarn ctf:5
+```
 
-## Contributing to Scaffold-ETH 2
+### Testing on Local Chain
+```bash
+# 1. Start local chain
+yarn chain
 
-We welcome contributions to Scaffold-ETH 2!
+# 2. Deploy contracts
+yarn deploy
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+# 3. Execute (add --local flag)
+yarn ctf:1 --local
+yarn ctf:all --local
+```
+
+## 📊 Execution Results
+
+```
+╔════════════════════════════════════════════════╗
+║      🚀 BuidlGuidl CTF - All Challenges       ║
+║                  Challenge 1-12                ║
+╚════════════════════════════════════════════════╝
+
+✅ Success: 12/12
+🎉🎉🎉 All challenges completed! Congratulations! 🎉🎉🎉
+```
+
+## 🛠️ Troubleshooting
+
+### Network Selection
+**Easy switching with --local flag**
+- With `--local` flag: Connects to Hardhat chain (localhost:8545, chainId: 31337)
+- Without flag: Connects to Optimism network
+- Local execution automatically uses Hardhat private key, production requires environment variable private key
+
+### Insufficient Gas Fee Error
+```bash
+Error: insufficient funds for gas
+```
+→ Add ETH for gas fees to your Optimism network wallet
+
+### Permission Error
+```bash
+Error: execution reverted
+```
+→ Previous challenges may not be completed. Execute sequentially from Challenge 1
+
+## 📚 Learning Resources
+
+### Official Documentation
+- [BuidlGuidl CTF](https://ctf.buidlguidl.com/) - Official CTF platform
+- [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) - Framework documentation
+- [Viem Documentation](https://viem.sh/) - TypeScript Ethereum library
+- [Hardhat Documentation](https://hardhat.org/docs) - Development environment
+
+### Smart Contract Security
+- [Solidity Security Considerations](https://docs.soliditylang.org/en/latest/security-considerations.html) - Official Solidity security guide
+- [Smart Contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/) - ConsenSys security guide
+- [SWC Registry](https://swcregistry.io/) - Smart Contract Weakness Classification
+- [Ethernaut](https://ethernaut.openzeppelin.com/) - OpenZeppelin's CTF challenges
+
+### Community & Support
+- [BuidlGuidl Discord](https://discord.gg/buidlguidl) - Join the community
+- [Ethereum Stack Exchange](https://ethereum.stackexchange.com/) - Q&A platform
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Report Issues**: Found a bug or have a suggestion? [Open an issue](../../issues)
+2. **Improve Documentation**: Help make the README clearer
+3. **Share Solutions**: Propose alternative or more efficient solutions
+4. **Add Tests**: Improve test coverage
+
+### Contribution Guidelines
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+Please ensure your code:
+- Follows the existing code style
+- Includes comments for complex logic
+- Works with both local and Optimism networks
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [BuidlGuidl](https://buidlguidl.com/) for creating this educational CTF platform
+- [Scaffold-ETH 2](https://scaffoldeth.io/) for the excellent framework
+- All contributors and the Ethereum developer community
+
+---
+
+**Happy Learning! 🚀**
+
+If you find this repository helpful, please consider giving it a ⭐️

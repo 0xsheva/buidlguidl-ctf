@@ -1,5 +1,5 @@
 {
-  "name": "se-2",
+  "name": "buildguidl-ctf",
   "version": "0.0.1",
   "private": true,
   "workspaces": {
@@ -44,7 +44,21 @@
     "vercel": "yarn workspace @se-2/nextjs vercel",
     "vercel:login": "yarn workspace @se-2/nextjs vercel:login",
     "vercel:yolo": "yarn workspace @se-2/nextjs vercel:yolo",
-    "verify": "yarn hardhat:verify"
+    "verify": "yarn hardhat:verify",
+    "ctf": "yarn workspace @se-2/scripts ctf",
+    "ctf:all": "yarn workspace @se-2/scripts ctf:all",
+    "ctf:1": "yarn workspace @se-2/scripts ctf:1",
+    "ctf:2": "yarn workspace @se-2/scripts ctf:2",
+    "ctf:3": "yarn workspace @se-2/scripts ctf:3",
+    "ctf:4": "yarn workspace @se-2/scripts ctf:4",
+    "ctf:5": "yarn workspace @se-2/scripts ctf:5",
+    "ctf:6": "yarn workspace @se-2/scripts ctf:6",
+    "ctf:7": "yarn workspace @se-2/scripts ctf:7",
+    "ctf:8": "yarn workspace @se-2/scripts ctf:8",
+    "ctf:9": "yarn workspace @se-2/scripts ctf:9",
+    "ctf:10": "yarn workspace @se-2/scripts ctf:10",
+    "ctf:11": "yarn workspace @se-2/scripts ctf:11",
+    "ctf:12": "yarn workspace @se-2/scripts ctf:12"
   },
   "devDependencies": {
     "husky": "~8.0.3",
