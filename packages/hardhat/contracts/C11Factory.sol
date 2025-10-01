@@ -17,11 +17,6 @@ contract C11Factory {
     }
 
     function computeAddress(bytes32 salt, bytes32 codeHash) public view returns (address) {
-        return address(uint160(uint256(keccak256(abi.encodePacked(
-            bytes1(0xff),
-            address(this),
-            salt,
-            codeHash
-        )))));
+        return address(uint160(uint256(keccak256(abi.encodePacked(bytes1(0xff), address(this), salt, codeHash)))));
     }
 }

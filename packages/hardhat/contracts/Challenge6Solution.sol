@@ -8,8 +8,8 @@ interface IChallenge6 {
 contract Challenge6Solution {
     IChallenge6 public challenge6;
     string public name = "BG CTF Challenge 6 Solution"; // Return the correct name
-    uint256 public lastGasLeft;  // For debugging: Record the last gasleft() value
-    bool public success;         // For debugging: Success flag
+    uint256 public lastGasLeft; // For debugging: Record the last gasleft() value
+    bool public success; // For debugging: Success flag
 
     constructor(address _challenge6Address) {
         challenge6 = IChallenge6(_challenge6Address);
@@ -17,9 +17,7 @@ contract Challenge6Solution {
 
     function solve() external {
         // Read the count value from Challenge6
-        (bool success1, bytes memory countData) = address(challenge6).staticcall(
-            abi.encodeWithSignature("count()")
-        );
+        (bool success1, bytes memory countData) = address(challenge6).staticcall(abi.encodeWithSignature("count()"));
         require(success1, "Failed to get count");
         uint256 currentCount = abi.decode(countData, (uint256));
 
@@ -33,9 +31,7 @@ contract Challenge6Solution {
         // Use assembly for precise gas control
 
         // Read the count value from Challenge6
-        (bool success1, bytes memory countData) = address(challenge6).staticcall(
-            abi.encodeWithSignature("count()")
-        );
+        (bool success1, bytes memory countData) = address(challenge6).staticcall(abi.encodeWithSignature("count()"));
         require(success1, "Failed to get count");
         uint256 currentCount = abi.decode(countData, (uint256));
 
@@ -63,9 +59,7 @@ contract Challenge6Solution {
         uint256 gasAtStart = gasleft();
 
         // Read the count value from Challenge6
-        (bool success1, bytes memory countData) = address(challenge6).staticcall(
-            abi.encodeWithSignature("count()")
-        );
+        (bool success1, bytes memory countData) = address(challenge6).staticcall(abi.encodeWithSignature("count()"));
         require(success1, "Failed to get count");
         uint256 currentCount = abi.decode(countData, (uint256));
 
@@ -100,9 +94,7 @@ contract Challenge6Solution {
         lastGasLeft = gasleft();
 
         // Read the count value from Challenge6
-        (bool success1, bytes memory countData) = address(challenge6).staticcall(
-            abi.encodeWithSignature("count()")
-        );
+        (bool success1, bytes memory countData) = address(challenge6).staticcall(abi.encodeWithSignature("count()"));
         require(success1, "Failed to get count");
         uint256 currentCount = abi.decode(countData, (uint256));
 
